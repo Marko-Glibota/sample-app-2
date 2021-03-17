@@ -42,6 +42,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
@@ -50,6 +51,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
