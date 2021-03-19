@@ -3,9 +3,29 @@
     <%= link_to "sample app", root_path, id: "logo" %>
     <nav>
       <ul class="list-inline mb-0">
-        <li class="list-inline-item"><%= link_to "Home", root_path %></li>
-        <li class="list-inline-item"><%= link_to "Help", help_path %></li>
-        <li class="list-inline-item"><%= link_to "Log in", '#' %></li>
+
+        <li class="list-inline-item mr-5"><%= link_to "Home", root_path, class: 'white' %></li>
+        <li class="list-inline-item mr-5"><%= link_to "Help", help_path, class: 'white' %></li>
+
+        <% if logged_in? %>
+          <li class="list-inline-item mr-5"><%= link_to "Users", "#", class: 'white' %></li>
+          <li class="list-inline-item dropdown mr-3">
+            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle white">
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li class="dropdown-item"><%= link_to "Profile", current_user, class: 'dark-grey' %></li>
+              <li class="dropdown-item"><%= link_to "Settings", "#", class: 'dark-grey' %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
+                <%= link_to "Log out", logout_path, method: "delete", class: 'dark-grey' %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="list-inline-item"><%= link_to "Log in", '#', class: 'white' %></li>
+        <% end %>
+
       </ul>
     </nav>
   </div>
